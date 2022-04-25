@@ -1,0 +1,18 @@
+{
+  "name": "cordova-plugin-salesmanago",
+  "version": "0.1.0",
+  "description": "Cordova salesmanago plugin",
+  "cordova": {
+    "id": "cordova-plugin-salesmanago",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "salesmanago"
+  ],
+  "author": "RCL"
+}

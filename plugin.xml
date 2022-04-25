@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	id="cordova-plugin-salesmanago"
+	version="0.0.1">
+	<name>salesmanagoPlugin</name>
+	<description>Interact with SALESMANAGO SDK</description>
+	<keywords>cordova plugin salesmanago</keywords>
+	
+    <js-module src="www/salesmanagoPlugin.js" name="salesmanagoPlugin">
+        <clobbers target="salesmanagoPlugin" />
+    </js-module>
+	
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="SalesmanagoPlugin">
+				<param name="android-package" value="com.salesmanago.sdk.SalesmanagoPlugin"/>
+			</feature>
+		</config-file>
+			
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<application android:allowBackup="false" />
+			<application tools:replace="android:allowBackup" />
+        </config-file>	
+
+		<source-file src="src/android/SalesmanagoPlugin.java" target-dir="src/com/salesmanago/sdk" />
+
+		<resource-file src="libs/android/appmanagolibrary-release.aar" target="libs/appmanagolibrary-release.aar" />
+
+		<framework src="src/android/salesmanagoPlugin.gradle" custom="true" type="gradleReference" />
+	</platform>
+
+</plugin>
