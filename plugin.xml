@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	id="cordova-plugin-salesmanago"
-	version="0.0.1">
-	<name>salesmanagoPlugin</name>
-	<description>Interact with SALESMANAGO SDK</description>
-	<keywords>cordova plugin salesmanago</keywords>
-	
-    <js-module src="www/salesmanagoPlugin.js" name="salesmanagoPlugin">
-        <clobbers target="salesmanagoPlugin" />
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-salesmanago"
+        version="1.0.0">
+    <name>SalesManago Plugin</name>
+    <description>Interact with SalesManago</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova plugin sales manago</keywords>
+ 
+    <js-module src="www/plugin.js" name="salesManago">
+        <clobbers target="cordova.plugins.salesManago" />
     </js-module>
-	
-	<platform name="android">
-		<config-file target="res/xml/config.xml" parent="/*">
-			<feature name="SalesmanagoPlugin">
-				<param name="android-package" value="com.salesmanago.sdk.SalesmanagoPlugin"/>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+			<feature name="SalesManagoPlugin">
+				<param name="android-package" value="com.salesmanago.sdk.SalesManagoPlugin"/>
 			</feature>
 		</config-file>
-			
-		<config-file target="AndroidManifest.xml" parent="/manifest/application">
-			<application android:allowBackup="false" />
-			<application tools:replace="android:allowBackup" />
-        </config-file>	
 
-		<source-file src="src/android/SalesmanagoPlugin.java" target-dir="src/com/salesmanago/sdk" />
+        <config-file target="res/values/strings.xml" parent="/*">
+            <string name="appmanago_launch_time">30</string>
+            <string name="appmanago_sync_meantime">360</string>
+            <string name="appmanago_endpoint">https://api.appmanago.com</string>
+            <string name="appmanago_vendor_id">VENDOR_ID</string>
+            <string name="appmanago_application_id">APPLICATION_SIMPLE_ID</string>
+            <string name="appmanago_gps_sync_time">10</string>
+            <string name="appmanago_gps_front_available">1</string>
+            <string name="appmanago_gps_accuracy">BALANCED</string>
+        </config-file>
 
-		<resource-file src="libs/android/appmanagolibrary-release.aar" target="libs/appmanagolibrary-release.aar" />
+		<source-file src="src/android/SalesManagoPlugin.java" target-dir="src/com/salesmanago/sdk" />
 
-		<framework src="src/android/salesmanagoPlugin.gradle" custom="true" type="gradleReference" />
+        <resource-file src="libs/android/appmanagolibrary.aar" target="libs/appmanagolibrary.aar" />
+
+		<framework src="src/android/SalesManagoPlugin.gradle" custom="true" type="gradleReference" />
 	</platform>
-
 </plugin>

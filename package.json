@@ -1,7 +1,8 @@
 {
-  "name": "cordova-plugin-salesmanago",
-  "version": "0.1.0",
-  "description": "Cordova salesmanago plugin",
+  "name": "SalesManagoPlugin",
+  "version": "1.0.0",
+  "description": "Interact with SalesManago",
+  "main": "www/salesManagoPlugin.js",
   "cordova": {
     "id": "cordova-plugin-salesmanago",
     "platforms": [
@@ -12,7 +13,8 @@
   "keywords": [
     "cordova",
     "plugin",
-    "salesmanago"
+    "sales",
+    "manago"
   ],
-  "author": "RCL"
+  "author": "Waigeo"
 }
