@@ -12,6 +12,12 @@ import android.util.Log;
 
 import com.appmanago.lib.AmMonitor;
 import com.appmanago.lib.AmMonitoring;
+import com.appmanago.lib.AmProperties;
+
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.ConnectionResult;
+
+import com.google.firebase.FirebaseApp;
 
 public class SalesManagoPlugin extends CordovaPlugin {
 
@@ -30,23 +36,41 @@ public class SalesManagoPlugin extends CordovaPlugin {
 
         Log.i(TAG, "Action Name: " + action);
 
-        if (action.equals("initialize")) {
-            boolean result = true;
+        boolean result = true;
 
-            try {
+        try {
+            if (action.equals("initialize")) {
                 if (amMonitor == null) amMonitor = AmMonitor.initLibrary(this.cordova.getActivity().getApplicationContext());
-            } catch (Exception e) {
-                Log.i(TAG, "Initialize error: " + e.toString());
-
-                result = false;
+            } else if (action.equals("syncEmail")) {
+                amMonitor.syncEmail(args.getString(0));
+            } else if (action.equals("syncPhone")) {
+                amMonitor.syncMsisdn(args.getString(0));
+            } else if (action.equals("syncPushToken")) {
+                if (checkPlayServices()) {
+                    amMonitor.resolveRegistrationToken();
+                }
             }
-
-            Log.i(TAG, "Initialize ended");
-
-            return result;
+        } catch (Exception e) {
+            Log.i(TAG, "Exception in " + action + " : " + e.toString());
+            result = false;
         }
 
+        return result;
+    }
 
-        return false;
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this.cordova.getActivity().getApplicationContext());
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this.cordova.getActivity(), resultCode, 9000)
+                .show();
+            } else {
+                Log.i(TAG, "This device is not supported.");
+            }
+
+            return false;
+        }
+        return true;
     }
 }

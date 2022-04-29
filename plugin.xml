@@ -19,12 +19,20 @@
 			</feature>
 		</config-file>
 
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="com.appmanago.lib.fcm.AmFirebaseListenerService">
+                <intent-filter>
+                    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                </intent-filter>
+            </service>
+        </config-file>
+
         <config-file target="res/values/strings.xml" parent="/*">
             <string name="appmanago_launch_time">30</string>
             <string name="appmanago_sync_meantime">360</string>
             <string name="appmanago_endpoint">https://api.appmanago.com</string>
-            <string name="appmanago_vendor_id">VENDOR_ID</string>
-            <string name="appmanago_application_id">APPLICATION_SIMPLE_ID</string>
+            <string name="appmanago_vendor_id">L9MCFLZ4DNW3YZRW</string>
+            <string name="appmanago_application_id">rcl</string>
             <string name="appmanago_gps_sync_time">10</string>
             <string name="appmanago_gps_front_available">1</string>
             <string name="appmanago_gps_accuracy">BALANCED</string>
@@ -35,5 +43,19 @@
         <resource-file src="libs/android/appmanagolibrary.aar" target="libs/appmanagolibrary.aar" />
 
 		<framework src="src/android/SalesManagoPlugin.gradle" custom="true" type="gradleReference" />
+	</platform>
+
+    <platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="SalesManagoPlugin">
+				<param name="ios-package" value="SalesManagoPlugin" />
+			</feature>
+		</config-file>
+
+		<header-file src="src/ios/SalesManagoPlugin.h" target-dir="libPlugin"/>
+		<source-file src="src/ios/SalesManagoPlugin.m" target-dir="libPlugin"/>
+             
+		<framework src="libs/ios/AMMonitor.framework" custom="true" embed="true"/>
+        <framework src="libs/ios/AMMonitorBundle.bundle" custom="true" embed="true"/>
 	</platform>
 </plugin>

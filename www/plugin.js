@@ -10,5 +10,14 @@ var success = function() {
 module.exports = {
 	initialize: function (options) {
     	cordova.exec(success, failure, "SalesManagoPlugin", "initialize", [options]);
+  	},
+    syncEmail: function (options) {
+    	cordova.exec(success, failure, "SalesManagoPlugin", "syncEmail", [options]);
+  	},
+    syncPhone: function (options) {
+    	cordova.exec(success, failure, "SalesManagoPlugin", "syncPhone", [options]);
+  	},
+    syncPushToken: function (options) {
+    	cordova.exec(success, failure, "SalesManagoPlugin", "syncPushToken", [options]);
   	}
 };
