@@ -96,9 +96,9 @@
 		<header-file src="src/ios/SalesManagoPlugin.h" target-dir="ios"/>
 		<source-file src="src/ios/SalesManagoPlugin.m" target-dir="ios"/>
 
-		<header-file src="src/ios/AMMonitor.framework/Versions/A/Headers/AMMonitor.h" target-dir="ios"/>
+		<header-file src="libs/ios/AMMonitor.framework/Versions/A/Headers/AMMonitor.h" target-dir="ios"/>
         
-		<source-file src="src/ios/AMMonitor.framework/AMMonitor" framework="true"/>
-        <resource-file src="src/ios/AMMonitorBundle.bundle" />
+		<source-file src="libs/ios/AMMonitor.framework/AMMonitor" framework="true"/>
+        <resource-file src="libs/ios/AMMonitorBundle.bundle" />
 	</platform>
 </plugin>
