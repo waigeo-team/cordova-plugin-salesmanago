@@ -52,6 +52,47 @@
 			</feature>
 		</config-file>
 
+        <config-file target="*-Info.plist" parent="amAppId">
+            <string>rcl</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="amSyncMeantime">
+            <string>360</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="amDevice~ipad">
+            <string>TABLET</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="amDevice~iphone">
+            <string>PHONE</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="amDevice~ipod">
+            <string>PHONE</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="amSessionSplitTimeInterval">
+            <string>5</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="amVendorId">
+            <string>L9MCFLZ4DNW3YZRW</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+            <key>NSExceptionDomains</key>
+            <dict>
+                <key>appmanago.com</key>
+                <dict>
+                    <key>NSExceptionRequiresForwardSecrecy</key>
+                    <false/>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                </dict>
+            </dict>
+        </dict>
+        </config-file>
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+            <array>
+                <string>remote-notification</string>
+            </array>
+        </config-file>
+
 		<header-file src="src/ios/SalesManagoPlugin.h" target-dir="libPlugin"/>
 		<source-file src="src/ios/SalesManagoPlugin.m" target-dir="libPlugin"/>
              
