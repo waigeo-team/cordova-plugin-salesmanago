@@ -98,7 +98,7 @@
 
 		<header-file src="src/ios/AMMonitor.framework/Versions/A/Headers/AMMonitor.h" target-dir="ios"/>
         
-		<source-file src="src/ios/AMMonitor.framework/Versions/A/AMMonitor" framework="true"/>
+		<source-file src="src/ios/AMMonitor.framework/AMMonitor" framework="true"/>
         <resource-file src="src/ios/AMMonitorBundle.bundle" />
 	</platform>
 </plugin>
