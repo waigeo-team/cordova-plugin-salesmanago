@@ -1,5 +1,4 @@
 #import "SalesManagoPlugin.h"
-#import "AMMonitor/AMMonitor.h"
 
 @implementation SalesManagoPlugin
 
