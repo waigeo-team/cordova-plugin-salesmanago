@@ -76,16 +76,16 @@
         <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
             <dict>
                 <key>NSExceptionDomains</key>
-            <dict>
-                <key>appmanago.com</key>
                 <dict>
-                    <key>NSExceptionRequiresForwardSecrecy</key>
-                    <false/>
-                    <key>NSIncludesSubdomains</key>
-                    <true/>
+                    <key>appmanago.com</key>
+                    <dict>
+                        <key>NSExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                    </dict>
                 </dict>
             </dict>
-        </dict>
         </config-file>
         <config-file target="*-Info.plist" parent="UIBackgroundModes">
             <array>
