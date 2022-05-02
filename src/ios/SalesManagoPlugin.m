@@ -1,8 +1,9 @@
 #import "SalesManagoPlugin.h"
+#import "AMMonitor.h"
 
 @implementation SalesManagoPlugin
 
-- (void)launchPlayer:(CDVInvokedUrlCommand*)command
+- (void)initialize:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 
