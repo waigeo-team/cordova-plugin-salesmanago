@@ -48,7 +48,7 @@
     <platform name="ios">
 		<config-file target="config.xml" parent="/*">
 			<feature name="SalesManagoPlugin">
-				<param name="ios-package" value="SalesManagoPlugin" />
+				<param name="ios-package" value="SalesManagoPlugin"/>
 			</feature>
 		</config-file>
 
@@ -75,7 +75,7 @@
         </config-file>
         <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
             <dict>
-            <key>NSExceptionDomains</key>
+                <key>NSExceptionDomains</key>
             <dict>
                 <key>appmanago.com</key>
                 <dict>
@@ -93,10 +93,12 @@
             </array>
         </config-file>
 
-		<header-file src="src/ios/SalesManagoPlugin.h" target-dir="libPlugin"/>
-		<source-file src="src/ios/SalesManagoPlugin.m" target-dir="libPlugin"/>
-             
-		<framework src="libs/ios/AMMonitor.framework" custom="true" embed="true"/>
-        <framework src="libs/ios/AMMonitorBundle.bundle" custom="true" embed="true"/>
+		<header-file src="src/ios/SalesManagoPlugin.h" target-dir="ios"/>
+		<source-file src="src/ios/SalesManagoPlugin.m" target-dir="ios"/>
+
+		<header-file src="src/ios/AMMonitor.framework/Versions/A/Headers/AMMonitor.h" target-dir="ios"/>
+        
+		<source-file src="src/ios/AMMonitor.framework/Versions/A/AMMonitor" framework="true"/>
+        <resource-file src="src/ios/AMMonitorBundle.bundle" />
 	</platform>
 </plugin>
