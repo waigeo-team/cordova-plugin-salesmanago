@@ -40,7 +40,7 @@
 
 - (void)syncPhone:(CDVInvokedUrlCommand*)command _phone:(NSString *)phone {
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [[AMMonitor sharedInstance] syncPhone:phone];
+    [[AMMonitor sharedInstance] syncMsisdn:phone];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
