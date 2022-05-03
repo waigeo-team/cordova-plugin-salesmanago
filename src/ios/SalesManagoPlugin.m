@@ -38,7 +38,7 @@
 
 - (void)toto:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"**************** toto");
-    [[AMMonitor sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    // [[AMMonitor sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 /*- (void)pluginInitialize {
