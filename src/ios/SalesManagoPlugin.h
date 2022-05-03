@@ -7,7 +7,9 @@
 @interface SalesManagoPlugin : CDVPlugin
 
 - (void) initialize:(CDVInvokedUrlCommand*)command;
-- (void) toto:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
+- (void) didFinishLaunchingWithOptions:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
+- (void) syncEmail:(NSString *)email;
+- (void) syncPhone:(NSString *)phone;
 
 @end
 
