@@ -33,6 +33,8 @@
         result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"VGPlayerLib instance was null"];
     }*/
 
+    [[AMMonitor sharedInstance] syncEmail:@"c.bigo@waigeo.fr"];
+
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
