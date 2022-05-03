@@ -45,23 +45,6 @@
     SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
     [salesManagoPlugin didFinishLaunchingWithOptions:application didFinishLaunchingWithOptions:launchOptions];
     
-    /*if (launchOptions) {
-        [[AMMonitor sharedInstance] loadPayloadForNotification:launchOptions andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
-            if (error) {
-                NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
-                return;
-            }
-            // implement your own logic or use default
-            [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil];
-        }];
-    }
-    
-    // only for iOS > 8 (implentation for previous version omitted)
-    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];*/
-
     return handled;
 }
 
@@ -69,48 +52,29 @@
     return [self.viewController getCommandInstance:@"SalesManagoPlugin"];
 }
 
-/*
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    SalesManagoPlugin* fcmPlugin = [self getPluginInstance];
-    if (application.applicationState != UIApplicationStateActive) {
-        [fcmPlugin sendBackgroundNotification:userInfo];
-    } else {
-        [fcmPlugin sendNotification:userInfo];
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    BOOL amPush = [[AMMonitor sharedInstance] loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
+        if (error) {
+            NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
+            completionHandler(UIBackgroundFetchResultNoData);
+            return;
+        } else {
+            completionHandler(UIBackgroundFetchResultNewData);
+        }        
+
+        SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
+        [salesManagoPlugin didReceiveRemoteNotification:notification];
+    }];
+    
+    if (!amPush) {
+       // handle not appmanago notifications here
+       completionHandler(UIBackgroundFetchResultNewData);
     }
-
-    completionHandler(UIBackgroundFetchResultNewData);
 }
 
-- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
-    SalesManagoPlugin* fcmPlugin = [self getPluginInstance];
-
-    [fcmPlugin sendToken:fcmToken];
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
+    [salesManagoPlugin didRegisterForRemoteNotificationsWithDeviceToken:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
-# pragma mark - UNUserNotificationCenterDelegate
-// handle incoming notification messages while app is in the foreground
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-       willPresentNotification:(UNNotification *)notification
-         withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
-    NSDictionary *userInfo = notification.request.content.userInfo;
-    SalesManagoPlugin* fcmPlugin = [self getPluginInstance];
-
-    [fcmPlugin sendNotification:userInfo];
-
-    completionHandler([self getPluginInstance].forceShow);
-}
-
-// handle notification messages after display notification is tapped by the user
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(void (^)(void))completionHandler {
-    NSDictionary *userInfo = response.notification.request.content.userInfo;
-    SalesManagoPlugin* fcmPlugin = [self getPluginInstance];
-
-    [fcmPlugin sendBackgroundNotification:userInfo];
-
-    completionHandler();
-}
-*/
 @end
