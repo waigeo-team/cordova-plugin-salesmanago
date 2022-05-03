@@ -36,6 +36,11 @@
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
+- (void)toto {
+    NSLog(@"**************** toto");
+    [[AMMonitor sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
 /*- (void)pluginInitialize {
     NSLog(@"pluginInitialize Sales Manago Plugin");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishLaunching:) name:UIApplicationDidFinishLaunchingNotification object:nil];

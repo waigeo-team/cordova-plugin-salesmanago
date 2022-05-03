@@ -41,13 +41,35 @@
 
     NSLog(@"DidFinishLaunching");
 
+    // Override point for customization after application launch.
+    SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
+    [salesManagoPlugin toto];
+    
+    /*if (launchOptions) {
+        [[AMMonitor sharedInstance] loadPayloadForNotification:launchOptions andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
+            if (error) {
+                NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
+                return;
+            }
+            // implement your own logic or use default
+            [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil];
+        }];
+    }
+    
+    // only for iOS > 8 (implentation for previous version omitted)
+    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:mySettings];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];*/
+
     return handled;
 }
-/*
+
 - (SalesManagoPlugin*) getPluginInstance {
-    return [self.viewController getCommandInstance:@"FirebaseMessaging"];
+    return [self.viewController getCommandInstance:@"SalesManagoPlugin"];
 }
 
+/*
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     SalesManagoPlugin* fcmPlugin = [self getPluginInstance];
