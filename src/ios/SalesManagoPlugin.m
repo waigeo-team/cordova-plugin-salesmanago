@@ -34,13 +34,13 @@
 
 - (void)syncEmail:(CDVInvokedUrlCommand*)command _mail:(NSString *)email {
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [[AMMonitor sharedInstance] syncEmail_:mail:email];
+    [[AMMonitor sharedInstance] syncEmail:email];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
 - (void)syncPhone:(CDVInvokedUrlCommand*)command _phone:(NSString *)phone {
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [[AMMonitor sharedInstance] syncPhone:_phone:phone];
+    [[AMMonitor sharedInstance] syncPhone:phone];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
