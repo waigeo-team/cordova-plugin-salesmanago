@@ -35,12 +35,12 @@
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-void (^dialogHandler)(AMNotification *) = ^(AMNotification *notification) {
+/*void (^dialogHandler)(AMNotification *) = ^(AMNotification *notification) {
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:notification.payload[@"dialogOk"] style:UIAlertActionStyleDefault
     handler:^(UIAlertAction *action) {
         [[AMMonitor sharedInstance] trackNotificationCallback:notification]; 
     }];
     [[AMMonitor sharedInstance] displayDialog:notification withOkAction:okAction];
-};
+};*/
 
 @end
