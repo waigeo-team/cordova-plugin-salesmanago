@@ -94,6 +94,8 @@
             </array>
         </config-file>
 
+        <header-file src="src/ios/AppDelegate+SalesManagoPlugin.h" />
+        <source-file src="src/ios/AppDelegate+SalesManagoPlugin.m" />
 		<header-file src="src/ios/SalesManagoPlugin.h" target-dir="ios"/>
 		<source-file src="src/ios/SalesManagoPlugin.m" target-dir="ios"/>
 

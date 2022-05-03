@@ -1,6 +1,7 @@
 #import "SalesManagoPlugin.h"
 #import "AMMonitor.h"
 #import "AMNotification.h"
+#import "AppDelegate.h"
 
 @implementation SalesManagoPlugin
 
@@ -35,7 +36,7 @@
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-- (void)pluginInitialize {
+/*- (void)pluginInitialize {
     NSLog(@"pluginInitialize Sales Manago Plugin");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishLaunching:) name:UIApplicationDidFinishLaunchingNotification object:nil];
 }
@@ -72,7 +73,7 @@ void (^dialogHandler)(AMNotification *) = ^(AMNotification *notification) {
         [[AMMonitor sharedInstance] trackNotificationCallback:notification]; 
     }];
     [[AMMonitor sharedInstance] displayDialog:notification withOkAction:okAction];
-};
+};*/
 
 /*- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"didFinishLaunchingWithOptions Sales Manago Plugin");
