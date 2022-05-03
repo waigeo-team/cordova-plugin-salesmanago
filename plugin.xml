@@ -96,6 +96,8 @@
 		<header-file src="src/ios/SalesManagoPlugin.h" target-dir="ios"/>
 		<source-file src="src/ios/SalesManagoPlugin.m" target-dir="ios"/>
 
+        <framework src="AMMonitor.framework" />
+
 		<header-file src="libs/ios/AMMonitor.framework/Versions/A/Headers/AMMonitor.h" target-dir="ios"/>
 		<header-file src="libs/ios/AMMonitor.framework/Versions/A/Headers/AMNotification.h" target-dir="ios"/>
         
