@@ -36,7 +36,7 @@
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-- (void)toto {
+- (void)toto:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"**************** toto");
     [[AMMonitor sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }

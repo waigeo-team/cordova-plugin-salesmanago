@@ -43,7 +43,7 @@
 
     // Override point for customization after application launch.
     SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
-    [salesManagoPlugin toto];
+    [salesManagoPlugin toto:application didFinishLaunchingWithOptions:launchOptions];
     
     /*if (launchOptions) {
         [[AMMonitor sharedInstance] loadPayloadForNotification:launchOptions andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
