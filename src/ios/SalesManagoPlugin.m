@@ -32,15 +32,15 @@
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
 
-- (void)syncEmail:(NSString *)email {
+- (void)syncEmail:(CDVInvokedUrlCommand*)command _mail(NSString *)email {
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [[AMMonitor sharedInstance] syncEmail:email];
+    [[AMMonitor sharedInstance] syncEmail_:mail:email];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-- (void)syncPhone:(NSString *)phone {
+- (void)syncPhone:(CDVInvokedUrlCommand*)command _phone(NSString *)phone {
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-    [[AMMonitor sharedInstance] syncPhone:phone];
+    [[AMMonitor sharedInstance] syncPhone:_phone:phone];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
