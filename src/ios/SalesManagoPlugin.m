@@ -35,7 +35,15 @@
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (void)pluginInitialize {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishLaunching:) name:UIApplicationDidFinishLaunchingNotification object:nil];
+}
+
+- (void)finishLaunching:(NSNotification *)notification {
+    NSLog(@"didFinishLaunchingWithOptions Sales Manago Plugin");
+}
+
+/*- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"didFinishLaunchingWithOptions Sales Manago Plugin");
 
     // Override point for customization after application launch.
@@ -67,6 +75,6 @@ void (^dialogHandler)(AMNotification *) = ^(AMNotification *notification) {
         [[AMMonitor sharedInstance] trackNotificationCallback:notification]; 
     }];
     [[AMMonitor sharedInstance] displayDialog:notification withOkAction:okAction];
-};
+};*/
 
 @end

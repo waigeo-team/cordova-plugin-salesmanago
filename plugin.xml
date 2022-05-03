@@ -49,6 +49,7 @@
 		<config-file target="config.xml" parent="/*">
 			<feature name="SalesManagoPlugin">
 				<param name="ios-package" value="SalesManagoPlugin"/>
+                <param name="onload" value="true" />
 			</feature>
 		</config-file>
 
