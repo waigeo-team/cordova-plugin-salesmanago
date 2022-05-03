@@ -36,6 +36,7 @@
 }
 
 - (void)pluginInitialize {
+    NSLog(@"pluginInitialize Sales Manago Plugin");
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishLaunching:) name:UIApplicationDidFinishLaunchingNotification object:nil];
 }
 
