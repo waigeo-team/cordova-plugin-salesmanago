@@ -38,7 +38,7 @@
 
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"Registrer For Remote Notification *******************");
-    NSLog(@"%@", deviceToken)
+    NSLog(@"%@", deviceToken);
     [[AMMonitor sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
