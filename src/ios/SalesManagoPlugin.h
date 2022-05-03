@@ -7,7 +7,7 @@
 @interface SalesManagoPlugin : CDVPlugin
 
 - (void) initialize:(CDVInvokedUrlCommand*)command;
-- (void) toto:(CDVInvokedUrlCommand*)command;
+- (void) toto;
 
 @end
 
