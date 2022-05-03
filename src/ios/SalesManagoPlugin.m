@@ -32,9 +32,9 @@
     [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
 
-- (void)didReceiveRemoteNotification:(AMNotification *) notification {
+/*- (void)didReceiveRemoteNotification:(AMNotification *) notification {
     [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil]; }];
-}
+}*/
 
 - (void)didRegisterForRemoteNotificationsWithDeviceToken:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [[AMMonitor sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];

@@ -52,7 +52,7 @@
     return [self.viewController getCommandInstance:@"SalesManagoPlugin"];
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+/*- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     BOOL amPush = [[AMMonitor sharedInstance] loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
         if (error) {
             NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
@@ -70,7 +70,7 @@
        // handle not appmanago notifications here
        completionHandler(UIBackgroundFetchResultNewData);
     }
-}
+}*/
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
