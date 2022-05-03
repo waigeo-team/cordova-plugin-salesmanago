@@ -36,6 +36,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"didFinishLaunchingWithOptions Sales Manago Plugin");
+
     // Override point for customization after application launch.
     [[AMMonitor sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
