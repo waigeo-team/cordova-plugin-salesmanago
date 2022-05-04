@@ -11,8 +11,8 @@
 - (void) didFinishLaunchingWithOptions:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 //- (void) didReceiveRemoteNotification:(AMNotification *) notification;
 - (void) didRegisterForRemoteNotificationsWithDeviceToken:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
-- (void) syncEmail:(NSString *)email;
-- (void) syncPhone:(NSString *)phone;
+- (void) syncEmail:(CDVInvokedUrlCommand*)command _email:(NSString *)email;
+- (void) syncPhone:(CDVInvokedUrlCommand*)command _phone:(NSString *)phone;
 
 @end
 

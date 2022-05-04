@@ -24,6 +24,8 @@
             [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil];
         }];
     }
+
+    NSLog(@"didFinishLaunchingWithOptions *******************");
     
     // only for iOS > 8 (implentation for previous version omitted)
     UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
@@ -42,7 +44,9 @@
     [[AMMonitor sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
-- (void)syncEmail:(CDVInvokedUrlCommand*)command _mail:(NSString *)email {
+- (void)syncEmail:(CDVInvokedUrlCommand*)command _email:(NSString *)email {
+    NSLog(@"syncEmail *******************");
+
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [[AMMonitor sharedInstance] syncEmail:email];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
