@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>725366360248-4ibr8m1gnj256cshcp5rbl7j6sd4dmaj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.725366360248-4ibr8m1gnj256cshcp5rbl7j6sd4dmaj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBbiWUydUN87pFiwwp3JkBXvmRRFKv35ew</string>
+	<key>GCM_SENDER_ID</key>
+	<string>725366360248</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>fr.waigeo.salesManagoTest</string>
+	<key>PROJECT_ID</key>
+	<string>salesmanagotest-4e46c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>salesmanagotest-4e46c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:725366360248:ios:09b76731b055bfdbb70c4d</string>
+</dict>
+</plist>
