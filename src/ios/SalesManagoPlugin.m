@@ -44,18 +44,24 @@
     [[AMMonitor sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
-- (void)syncEmail:(CDVInvokedUrlCommand*)command _email:(NSString *)email {
+- (void)syncEmail:(CDVInvokedUrlCommand*)command {
     NSLog(@"syncEmail *******************");
 
+    NSString* email = [command argumentAtIndex:0];
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [[AMMonitor sharedInstance] syncEmail:email];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
-- (void)syncPhone:(CDVInvokedUrlCommand*)command _phone:(NSString *)phone {
+- (void)syncPhone:(CDVInvokedUrlCommand*)command {
+    NSString* phone = [command argumentAtIndex:0];
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [[AMMonitor sharedInstance] syncMsisdn:phone];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void)syncPushToken:(CDVInvokedUrlCommand*)command {
+    NSLog(@"syncPushToken");
 }
 
 void (^dialogHandler)(AMNotification *) = ^(AMNotification *notification) {
