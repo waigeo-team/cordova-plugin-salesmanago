@@ -39,8 +39,6 @@
 
     [UNUserNotificationCenter currentNotificationCenter].delegate = self;
 
-    NSLog(@"DidFinishLaunching");
-
     // Override point for customization after application launch.
     SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
     [salesManagoPlugin didFinishLaunchingWithOptions:application didFinishLaunchingWithOptions:launchOptions];
@@ -51,26 +49,6 @@
 - (SalesManagoPlugin*) getPluginInstance {
     return [self.viewController getCommandInstance:@"SalesManagoPlugin"];
 }
-
-/*- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
-    BOOL amPush = [[AMMonitor sharedInstance] loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
-        if (error) {
-            NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
-            completionHandler(UIBackgroundFetchResultNoData);
-            return;
-        } else {
-            completionHandler(UIBackgroundFetchResultNewData);
-        }        
-
-        SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
-        [salesManagoPlugin didReceiveRemoteNotification:notification];
-    }];
-    
-    if (!amPush) {
-       // handle not appmanago notifications here
-       completionHandler(UIBackgroundFetchResultNewData);
-    }
-}*/
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
