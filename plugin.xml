@@ -46,6 +46,8 @@
 	</platform>
 
     <platform name="ios">
+        <hook type="after_prepare" src="hooks/afterPluginInstall.js" />
+        
 		<config-file target="config.xml" parent="/*">
 			<feature name="SalesManagoPlugin">
 				<param name="ios-package" value="SalesManagoPlugin"/>
