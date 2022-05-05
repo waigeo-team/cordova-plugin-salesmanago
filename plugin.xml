@@ -104,7 +104,7 @@
 		<header-file src="libs/ios/AMMonitor.framework/Versions/A/Headers/AMMonitor.h" target-dir="ios"/>
 		<header-file src="libs/ios/AMMonitor.framework/Versions/A/Headers/AMNotification.h" target-dir="ios"/>
 
-        <framework src="libs/ios/AMMonitor.framework" target-dir="ios" />
+        <framework src="libs/ios/AMMonitor.framework" custom="true" embed="true" />
         
         <resource-file src="libs/ios/AMMonitorBundle.bundle" />
 	</platform>
