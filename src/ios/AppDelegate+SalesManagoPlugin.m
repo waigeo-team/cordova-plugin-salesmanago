@@ -55,4 +55,11 @@
     [salesManagoPlugin didRegisterForRemoteNotificationsWithDeviceToken:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    NSLog(@"Receive Remote Notification *******************");
+    [userInfo enumerateKeysAndObjectsUsingBlock:^(id key, id object, BOOL *stop){
+        NSLog(@"key->%@, value-> %@",key,object);
+    }];
+}
+
 @end
