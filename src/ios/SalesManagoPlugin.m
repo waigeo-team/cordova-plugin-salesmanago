@@ -56,6 +56,47 @@
     NSLog(@"syncPushToken");
 }
 
+- (BOOL)loadPayloadForNotification:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {	
+    NSLog(@"loadPayloadForNotification");
+		
+	BOOL amPush = [[AMMonitor sharedInstance] loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
+            if (error) {
+                NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
+                return;
+            }
+            // implement your own logic or use default
+            [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil];
+        }];
+	
+	
+}
+
+
+	
+	BOOL amPush = [[AMMonitor sharedInstance] loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
+		if (error) {
+		  NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
+		  completionHandler(UIBackgroundFetchResultNoData);
+		  return;
+		} else {
+		  completionHandler(UIBackgroundFetchResultNewData);
+		}
+		
+		// implement your own logic or use default
+		//[[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil]; 
+		
+	    
+		//[salesManagoPlugin didFinishLaunchingWithOptions:application didFinishLaunchingWithOptions:launchOptions];    
+
+	}];
+        
+    if (!amPush) {
+       // handle not appmanago notifications here
+       completionHandler(UIBackgroundFetchResultNewData);
+    }
+	
+	
+
 void (^dialogHandler)(AMNotification *) = ^(AMNotification *notification) {
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:notification.payload[@"dialogOk"] style:UIAlertActionStyleDefault
     handler:^(UIAlertAction *action) {
