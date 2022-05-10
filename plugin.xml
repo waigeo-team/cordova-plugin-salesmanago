@@ -109,7 +109,9 @@
         
         <resource-file src="libs/ios/AMMonitorBundle.bundle" />
 		
+		<!--
 		<hook type="after_plugin_add" src="hooks/xcode-config.js" />
 		<hook type="after_platform_add" src="hooks/xcode-config.js" />
+		-->
 	</platform>
 </plugin>
