@@ -5,6 +5,8 @@
 #ifndef SalesManagoPlugin_h
 #define SalesManagoPlugin_h
 
+typedef void (^AMNotificationHandlerWithError)(AMNotification *notification, NSError *error);
+
 @interface SalesManagoPlugin : CDVPlugin
 
 - (void) initialize:(CDVInvokedUrlCommand*)command;

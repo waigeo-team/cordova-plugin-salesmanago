@@ -64,7 +64,7 @@
 }
 
 - (void)didReceiveRemoteNotification:(AMNotification *) notification {
-    [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil]; }];
+    [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil];
 }
 
 void (^dialogHandler)(AMNotification *) = ^(AMNotification *notification) {
