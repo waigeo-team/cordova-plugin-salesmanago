@@ -53,17 +53,18 @@
 }
 
 - (void)syncPushToken:(CDVInvokedUrlCommand*)command {
-    NSLog(@"syncPushToken");
+    NSLog(@"syncPushToken *******************");
 }
 
 - (BOOL) loadPayloadForNotification:(NSDictionary *)userInfo andApplication:(UIApplication *)application loadCompletionHandlerWithError:(AMNotificationHandlerWithError)completionHandler {	
-    NSLog(@"loadPayloadForNotification");
+    NSLog(@"loadPayloadForNotification *******************");
 	return [[AMMonitor sharedInstance] loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
         completionHandler(notification, error);
     }];
 }
 
 - (void)didReceiveRemoteNotification:(AMNotification *) notification {
+    NSLog(@"didReceiveRemoteNotification *******************");
     [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil];
 }
 

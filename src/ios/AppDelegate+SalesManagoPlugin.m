@@ -64,6 +64,7 @@
 	SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
 
     BOOL amPush = [salesManagoPlugin loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
+        NSLog(@"loadPayloadForNotification completion handler *******************");
         if (error) {
             NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
             completionHandler(UIBackgroundFetchResultNoData);
