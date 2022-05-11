@@ -62,30 +62,22 @@
     }];
 	
 	SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
-	
-	BOOL amPush = [[AMMonitor sharedInstance] loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
-		if (error) {
-		  NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
-		  completionHandler(UIBackgroundFetchResultNoData);
-		  return;
-		} else {
-		  completionHandler(UIBackgroundFetchResultNewData);
-		}
-		
-		// implement your own logic or use default
-		//[[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil]; 
-		
-	    
-		//[salesManagoPlugin didFinishLaunchingWithOptions:application didFinishLaunchingWithOptions:launchOptions];
-    
-	
-		 PushPlugin *pushHandler = [self getCommandInstance:@"PushNotification"];
 
+    BOOL amPush = [salesManagoPlugin loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
+        if (error) {
+            NSLog(@"Error occured while downloading notification :  %@", [error localizedDescription]);
+            completionHandler(UIBackgroundFetchResultNoData);
+            return;
+        } else {
+            completionHandler(UIBackgroundFetchResultNewData);
+        }
+		
+		SalesManagoPlugin* salesManagoPlugin = [self getPluginInstance];
+        [salesManagoPlugin didReceiveRemoteNotification:notification];
 	}];
-        
+	
     if (!amPush) {
-       // handle not appmanago notifications here
-       completionHandler(UIBackgroundFetchResultNewData);
+        completionHandler(UIBackgroundFetchResultNewData);
     }
 	
 }	

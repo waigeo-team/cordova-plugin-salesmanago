@@ -13,6 +13,8 @@
 - (void) syncEmail:(CDVInvokedUrlCommand*)command;
 - (void) syncPhone:(CDVInvokedUrlCommand*)command;
 - (void) syncPushToken:(CDVInvokedUrlCommand*)command;
+- (BOOL) loadPayloadForNotification:(NSDictionary *)userInfo andApplication:(UIApplication *)application loadCompletionHandlerWithError:(AMNotificationHandlerWithError)completionHandler;
+- (void) didReceiveRemoteNotification:(AMNotification *) notification;
 
 @end
 
