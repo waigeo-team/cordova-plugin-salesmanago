@@ -11,16 +11,16 @@ module.exports = {
 	initialize: function (options) {
     	cordova.exec(success, failure, "SalesManagoPlugin", "initialize", [options]);
   	},
-    syncEmail: function (options) {
-    	cordova.exec(success, failure, "SalesManagoPlugin", "syncEmail", [options]);
+    syncEmail: function (email) {
+    	cordova.exec(success, failure, "SalesManagoPlugin", "syncEmail", [email]);
   	},
-    syncPhone: function (options) {
-    	cordova.exec(success, failure, "SalesManagoPlugin", "syncPhone", [options]);
+    syncPhone: function (phone) {
+    	cordova.exec(success, failure, "SalesManagoPlugin", "syncPhone", [phone]);
   	},
     syncPushToken: function (options) {
     	cordova.exec(success, failure, "SalesManagoPlugin", "syncPushToken", [options]);
   	},
-    syncLocation: function (options) {
-        cordova.exec(success, failure, "SalesManagoPlugin", "syncLocation", [options]);
+    syncLocation: function (latitude, longitude) {
+        cordova.exec(success, failure, "SalesManagoPlugin", "syncLocation", [latitude, longitude]);
     }
 };
