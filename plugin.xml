@@ -33,7 +33,7 @@
             <string name="appmanago_endpoint">https://api.appmanago.com</string>
             <string name="appmanago_vendor_id">L9MCFLZ4DNW3YZRW</string>
             <string name="appmanago_application_id">rcl</string>
-            <string name="appmanago_gps_sync_time">3</string>
+            <string name="appmanago_gps_sync_time">4</string>
             <string name="appmanago_gps_front_available">1</string>
             <string name="appmanago_gps_accuracy">BALANCED</string>
         </config-file>
