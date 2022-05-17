@@ -6,7 +6,7 @@
 @implementation SalesManagoPlugin
 
 - (void)initialize:(CDVInvokedUrlCommand*)command
-{
+{    
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
@@ -56,6 +56,15 @@
     NSLog(@"syncPushToken *******************");
 }
 
+- (void)syncLocation:(CDVInvokedUrlCommand*)command {
+    NSLog(@"syncLocation *******************");
+    NSString* latitude = [command argumentAtIndex:0];
+    NSString* longitude = [command argumentAtIndex:1];
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [[AMMonitor sharedInstance] recordLocationWithLatitude:latitude andLongitude:longitude];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
 - (BOOL) loadPayloadForNotification:(NSDictionary *)userInfo andApplication:(UIApplication *)application loadCompletionHandlerWithError:(AMNotificationHandlerWithError)completionHandler {	
     NSLog(@"loadPayloadForNotification *******************");
 	return [[AMMonitor sharedInstance] loadPayloadForNotification:userInfo andApplication:application loadCompletionHandlerWithError:^(AMNotification *notification, NSError *error) {
@@ -65,6 +74,7 @@
 
 - (void)didReceiveRemoteNotification:(AMNotification *) notification {
     NSLog(@"didReceiveRemoteNotification *******************");
+    NSLog(@"*************** %@", notification);
     [[AMMonitor sharedInstance] handleNotification:notification notificationHandler:nil dialogHandler:dialogHandler urlHandler:nil inAppHandler:nil];
 }
 
