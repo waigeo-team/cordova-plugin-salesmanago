@@ -58,7 +58,13 @@
 
 - (void)syncLocation:(CDVInvokedUrlCommand*)command {
     NSLog(@"syncLocation *******************");
-    [[AMMonitor sharedInstance] recordLocationWithLatitude:@"50.083762" andLongitude:@"19.923"];
+    NSString* latitude = [command argumentAtIndex:0];
+    NSString* longitude = [command argumentAtIndex:1];
+    NSLog(@"%@", latitude)
+    NSLog(@"%@", longitude)
+    [[AMMonitor sharedInstance] recordLocationWithLatitude:latitude andLongitude:longitude];
+    
+    //[[AMMonitor sharedInstance] recordLocationWithLatitude:@"50.083762" andLongitude:@"19.923"];
     /*NSString* latitude = [command argumentAtIndex:0];
     NSString* longitude = [command argumentAtIndex:1];
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
