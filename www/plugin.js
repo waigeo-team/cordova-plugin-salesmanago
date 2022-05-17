@@ -19,5 +19,8 @@ module.exports = {
   	},
     syncPushToken: function (options) {
     	cordova.exec(success, failure, "SalesManagoPlugin", "syncPushToken", [options]);
-  	}
+  	},
+    syncLocation: function (options) {
+        cordova.exec(success, failure, "SalesManagoPlugin", "syncLocation", [options]);
+    }
 };
