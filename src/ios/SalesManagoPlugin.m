@@ -63,6 +63,7 @@
     NSString* longitude = [command argumentAtIndex:1];
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [[AMMonitor sharedInstance] recordLocationWithLatitude:latitude andLongitude:longitude];*/
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
